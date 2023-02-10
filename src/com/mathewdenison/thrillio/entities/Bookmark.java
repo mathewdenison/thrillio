@@ -1,9 +1,12 @@
 package com.mathewdenison.thrillio.entities;
 
-public class Bookmark {
+import com.mathewdenison.thrillio.constants.KidFriendlyStatus;
+
+public abstract class Bookmark {
     private long id;
     private String title;
     private String profileUrl;
+    private String kidFriendlyStatus = KidFriendlyStatus.UNKNOWN;
 
     public long getId() {
         return id;
@@ -28,4 +31,14 @@ public class Bookmark {
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
     }
+
+    public String getKidFriendlyStatus() {
+        return kidFriendlyStatus;
+    }
+
+    public void setKidFriendlyStatus(String kidFriendlyStatus) {
+        this.kidFriendlyStatus = kidFriendlyStatus;
+    }
+
+    public abstract boolean isKidFriendlyEligible();
 }

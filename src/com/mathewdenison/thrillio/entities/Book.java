@@ -1,5 +1,7 @@
 package com.mathewdenison.thrillio.entities;
 
+import com.mathewdenison.thrillio.constants.BookGenre;
+
 import java.util.Arrays;
 
 public class Book extends Bookmark {
@@ -47,6 +49,13 @@ public class Book extends Bookmark {
 
     public void setAmazonRating(double amazonRating) {
         this.amazonRating = amazonRating;
+    }
+
+    public boolean isKidFriendlyEligible() {
+       if(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)) {
+           return false;
+       }
+       return true;
     }
 
     @Override
