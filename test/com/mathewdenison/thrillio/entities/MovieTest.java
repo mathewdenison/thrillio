@@ -2,9 +2,10 @@ package com.mathewdenison.thrillio.entities;
 
 import com.mathewdenison.thrillio.constants.MovieGenre;
 import com.mathewdenison.thrillio.managers.BookmarkManager;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 class MovieTest {
 
