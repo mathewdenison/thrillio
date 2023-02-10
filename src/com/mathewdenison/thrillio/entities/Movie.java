@@ -1,6 +1,8 @@
 package com.mathewdenison.thrillio.entities;
 
 import com.mathewdenison.thrillio.constants.MovieGenre;
+import com.mathewdenison.thrillio.partner.Shareable;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
