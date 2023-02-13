@@ -2,84 +2,94 @@ package com.mathewdenison.thrillio.entities;
 
 import com.mathewdenison.thrillio.constants.BookGenre;
 import com.mathewdenison.thrillio.partner.Shareable;
+import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
 
+/**
+ * Class to enable methods of Book to then get passed to storage as well as pass data to
+ * third party site through use of Shareable interface.
+ */
 public class Book extends Bookmark implements Shareable {
-    private int publicationYear;
-    private String publisher;
-    private String[] authors;
-    private String genre;
-    private double amazonRating;
+  private int publicationYear;
+  private String publisher;
+  private String[] authors;
+  private String genre;
+  private double amazonRating;
 
-    public int getPublicationYear() {
-        return publicationYear;
-    }
+  public int getPublicationYear() {
+    return publicationYear;
+  }
 
-    public void setPublicationYear(int publicationYear) {
-        this.publicationYear = publicationYear;
-    }
+  public void setPublicationYear(int publicationYear) {
+    this.publicationYear = publicationYear;
+  }
 
-    public String getPublisher() {
-        return publisher;
-    }
+  public String getPublisher() {
+    return publisher;
+  }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+  public void setPublisher(String publisher) {
+    this.publisher = publisher;
+  }
 
-    public String[] getAuthors() {
-        return authors;
-    }
+  public String[] getAuthors() {
+    return authors;
+  }
 
-    public void setAuthors(String[] authors) {
-        this.authors = authors;
-    }
+  public void setAuthors(String[] authors) {
+    this.authors = authors;
+  }
 
-    public String getGenre() {
-        return genre;
-    }
+  public String getGenre() {
+    return genre;
+  }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+  public void setGenre(String genre) {
+    this.genre = genre;
+  }
 
-    public double getAmazonRating() {
-        return amazonRating;
-    }
+  public double getAmazonRating() {
+    return amazonRating;
+  }
 
-    public void setAmazonRating(double amazonRating) {
-        this.amazonRating = amazonRating;
-    }
+  public void setAmazonRating(double amazonRating) {
+    this.amazonRating = amazonRating;
+  }
 
-    public boolean isKidFriendlyEligible() {
-       return (!(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)));
-    }
+  public boolean isKidFriendlyEligible() {
+    return (!(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)));
+  }
 
-    @Override
-    public String getItemData() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("<item>");
-            builder.append("<type>Book</type");
-            builder.append("<title>").append(getTitle()).append("</title>");
-            builder.append("<authors>").append(StringUtils.join(authors, ",")).append("</authors>");
-            builder.append("<publisher>").append(publisher).append("</publisher>");
-            builder.append("<publicationYear>").append(publicationYear).append("</publicationYear>");
-            builder.append("<genre>").append(genre).append("</genre>");
-            builder.append("<amazonRating>").append(amazonRating).append("</amazonRating>");
-        builder.append("</item>");
-        return builder.toString();
-    }
+  @Override
+  public String getItemData() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("<item>");
+    builder.append("<type>Book</type");
+    builder.append("<title>").append(getTitle()).append("</title>");
+    builder.append("<authors>").append(StringUtils.join(authors, ",")).append("</authors>");
+    builder.append("<publisher>").append(publisher).append("</publisher>");
+    builder.append("<publicationYear>").append(publicationYear).append("</publicationYear>");
+    builder.append("<genre>").append(genre).append("</genre>");
+    builder.append("<amazonRating>").append(amazonRating).append("</amazonRating>");
+    builder.append("</item>");
+    return builder.toString();
+  }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "publicationYear=" + publicationYear +
-                ", publisher='" + publisher + '\'' +
-                ", authors=" + Arrays.toString(authors) +
-                ", genre='" + genre + '\'' +
-                ", amazonRating=" + amazonRating +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Book{"
+        + "publicationYear="
+        + publicationYear
+        + ", publisher='"
+        + publisher
+        + '\''
+        + ", authors="
+        + Arrays.toString(authors)
+        + ", genre='"
+        + genre + '\''
+        + ", amazonRating="
+        + amazonRating
+        + '}';
+  }
 }
