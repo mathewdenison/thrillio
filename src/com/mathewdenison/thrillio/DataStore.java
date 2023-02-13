@@ -4,7 +4,6 @@ import com.mathewdenison.thrillio.constants.BookGenre;
 import com.mathewdenison.thrillio.constants.Gender;
 import com.mathewdenison.thrillio.constants.MovieGenre;
 import com.mathewdenison.thrillio.constants.UserType;
-import com.mathewdenison.thrillio.entities.Book;
 import com.mathewdenison.thrillio.entities.Bookmark;
 import com.mathewdenison.thrillio.entities.User;
 import com.mathewdenison.thrillio.entities.UserBookmark;

@@ -1,8 +1,6 @@
 package com.mathewdenison.thrillio.entities;
 
 import com.mathewdenison.thrillio.constants.MovieGenre;
-import com.mathewdenison.thrillio.partner.Shareable;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
@@ -55,10 +53,7 @@ public class Movie extends Bookmark {
 
     @Override
     public boolean isKidFriendlyEligible() {
-        if (genre.equals(MovieGenre.HORROR) || genre.equals(MovieGenre.THRILLERS)){
-            return false;
-        }
-        return true;
+        return (!(genre.equals(MovieGenre.HORROR) || genre.equals(MovieGenre.THRILLERS)));
     }
 
     @Override

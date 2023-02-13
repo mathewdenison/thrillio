@@ -5,7 +5,7 @@ import com.mathewdenison.thrillio.entities.User;
 import com.mathewdenison.thrillio.managers.BookmarkManager;
 
 public class BookmarkController {
-    private static BookmarkController instance = new BookmarkController();
+    private static final BookmarkController instance = new BookmarkController();
     private BookmarkController() {}
     public static BookmarkController getInstance() {
         return instance;

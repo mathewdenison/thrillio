@@ -1,7 +1,6 @@
 package com.mathewdenison.thrillio.entities;
 
 import com.mathewdenison.thrillio.partner.Shareable;
-import org.apache.commons.lang3.StringUtils;
 
 public class WebLink extends Bookmark implements Shareable {
     private String url;
@@ -45,10 +44,7 @@ public class WebLink extends Bookmark implements Shareable {
 
     @Override
     public boolean isKidFriendlyEligible() {
-        if(url.contains("porn") || getTitle().contains("porn")
-                || host.contains("adult")) {
-            return false;
-        }
-        return true;
+        return (!(url.contains("porn") || getTitle().contains("porn")
+                || host.contains("adult")));
     }
 }

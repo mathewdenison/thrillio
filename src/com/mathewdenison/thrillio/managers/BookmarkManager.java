@@ -4,8 +4,8 @@ import com.mathewdenison.thrillio.dao.BookmarkDao;
 import com.mathewdenison.thrillio.entities.*;
 
 public class BookmarkManager {
-    private static BookmarkManager instance = new BookmarkManager();
-    private static BookmarkDao dao = new BookmarkDao();
+    private static final BookmarkManager instance = new BookmarkManager();
+    private static final BookmarkDao dao = new BookmarkDao();
 
     private BookmarkManager() {
     }

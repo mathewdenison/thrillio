@@ -54,10 +54,7 @@ public class Book extends Bookmark implements Shareable {
     }
 
     public boolean isKidFriendlyEligible() {
-       if(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)) {
-           return false;
-       }
-       return true;
+       return (!(genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)));
     }
 
     @Override

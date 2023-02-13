@@ -7,10 +7,10 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
-class MovieTest {
+public class MovieTest {
 
     @Test
-    void isKidFriendlyEligible() {
+    public void isKidFriendlyEligible() {
         //Test 1
         Movie movie = BookmarkManager.getInstance().createMovie(3000, "Citizen Kane", "", 1941, new String[] {"Orson Welles","Joseph Cotten"}, new String[] {"Orson Welles"}, MovieGenre.HORROR, 8.5);
 

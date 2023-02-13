@@ -4,8 +4,8 @@ import com.mathewdenison.thrillio.dao.UserDao;
 import com.mathewdenison.thrillio.entities.User;
 
 public class UserManager {
-    private static UserManager instance = new UserManager();
-    private static UserDao dao = new UserDao();
+    private static final UserManager instance = new UserManager();
+    private static final UserDao dao = new UserDao();
 
     private UserManager() {
     }
