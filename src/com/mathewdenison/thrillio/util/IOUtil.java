@@ -41,9 +41,12 @@ public class IOUtil {
 
   public static void write(String webpage, long id) {
     try (BufferedWriter writer = new BufferedWriter(
-            new OutputStreamWriter(new FileOutputStream("/Users/Mat/IdeaProjects/thrillio/pages" + String.valueOf(id) + ".html"), "UTF-8"))) {
+        new OutputStreamWriter(new FileOutputStream(
+            "/Users/Mat/Intellij Projects/thrillio/pages/" + String.valueOf(id) +
+                ".html"),
+            "UTF-8"))) {
       writer.write(webpage);
-      } catch (FileNotFoundException e) {
+    } catch (FileNotFoundException e) {
       throw new RuntimeException(e);
     } catch (UnsupportedEncodingException e) {
       throw new RuntimeException(e);
