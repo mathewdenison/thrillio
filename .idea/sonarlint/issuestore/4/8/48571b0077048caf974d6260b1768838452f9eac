@@ -1,0 +1,16 @@
+
+U
+java:S1118":Add a private constructor to hide the implicit public one.(ˆ¯¬Ğÿÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(í±œÔ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(æ· §
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(­¥Ÿ€ÿÿÿÿÿ
+H
+java:S1135B"2Complete the task associated to this TODO comment.(ññÁ„
+J
+java:S1172G"/Remove this unused method parameter "bookmark".(ñ¦ï€ûÿÿÿÿ
+_
+java:S3358K"DExtract this nested ternary operation into an independent statement.(ÁŠ’üÿÿÿÿ
+J
+java:S1172O"/Remove this unused method parameter "bookmark".(Ù¿Ûûÿÿÿÿ
+Q	java:S125S"<This block of commented-out lines of code should be removed.(¸âÏ

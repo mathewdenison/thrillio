@@ -1,0 +1,10 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(îà×¾øÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Ìâ¿©ýÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ø¼¢ƒ
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(·˜Ÿ¶
+V	java:S125*"<This block of commented-out lines of code should be removed.(’ËÎãÿÿÿÿÿ
+M
+java:S1144"2Remove this unused private "printUserData" method.(öüƒöúÿÿÿÿ
+Q
+java:S1144!"6Remove this unused private "printBookmarkData" method.(¤½­µùÿÿÿÿ
