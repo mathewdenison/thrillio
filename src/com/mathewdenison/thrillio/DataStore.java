@@ -9,6 +9,7 @@ import com.mathewdenison.thrillio.entities.User;
 import com.mathewdenison.thrillio.entities.UserBookmark;
 import com.mathewdenison.thrillio.managers.BookmarkManager;
 import com.mathewdenison.thrillio.managers.UserManager;
+import com.mathewdenison.thrillio.util.IOUtil;
 
 /**
  * Temporary datastore class to mimic holding of data for application.
@@ -48,7 +49,7 @@ public class DataStore {
   }
 
   private static void loadUsers() {
-    users[0] = UserManager.getInstance()
+    /*users[0] = UserManager.getInstance()
         .createUser(1000, "user0@semanticsquare.com", "test", "John", "M", Gender.MALE,
             UserType.USER);
     users[1] = UserManager.getInstance()
@@ -62,11 +63,28 @@ public class DataStore {
             UserType.EDITOR);
     users[4] = UserManager.getInstance()
         .createUser(1004, "user4@semanticsquare.com", "test", "Dheeru", "M", Gender.MALE,
-            UserType.CHIEFEDITOR);
+            UserType.CHIEFEDITOR);*/
+    String[] data = new String[TOTAL_USER_COUNT];
+    IOUtil.read(data, "User+");
+    int rowNum = 0;
+    for (String row : data) {
+      String[] values = row.split("\t");
+
+      int gender = Gender.MALE;
+      if (values[5].equals("f")) {
+        gender = Gender.FEMALE;
+      } else if (values[5].equals("t")) {
+        gender = Gender.TRANSGENDER;
+      }
+
+      users[rowNum++] =
+          UserManager.getInstance().createUser(Long.parseLong(values[0]), values[1], values[2],
+              values[3], values[4], gender, values[6]);
+    }
   }
 
   private static void loadWebLinks() {
-    bookmarks[0][0] = BookmarkManager.getInstance().createWebLink(2000, "Taming Tiger, Part 2",
+    /*bookmarks[0][0] = BookmarkManager.getInstance().createWebLink(2000, "Taming Tiger, Part 2",
         "http://www.javaworld.com/article/2072759/core-java/taming-tiger--part-2.html",
         "http://www.javaworld.com");
     bookmarks[0][1] = BookmarkManager.getInstance().createWebLink(2001,
@@ -83,12 +101,21 @@ public class DataStore {
     bookmarks[0][4] = BookmarkManager.getInstance()
         .createWebLink(2004, "Virtual Hosting and Tomcat",
             "http://tomcat.apache.org/tomcat-6.0-doc/virtual-hosting-howto.html",
-            "http://tomcat.apache.org");
+            "http://tomcat.apache.org");*/
 
+    String[] data = new String[BOOKMARK_COUNT_PER_TYPE];
+    IOUtil.read(data, "Web+Link+");
+    int colNum = 0;
+    for (String row : data) {
+      String[] values = row.split("\t");
+      bookmarks[0][colNum++] =
+          BookmarkManager.getInstance()
+              .createWebLink(Long.parseLong(values[0]), values[1], values[2], values[3]);
+    }
   }
 
   private static void loadMovies() {
-    bookmarks[1][0] = BookmarkManager.getInstance()
+    /*bookmarks[1][0] = BookmarkManager.getInstance()
         .createMovie(3000, "Citizen Kane", "", 1941, new String[] {"Orson Welles", "Joseph Cotten"},
             new String[] {"Orson Welles"}, MovieGenre.CLASSICS, 8.5);
     bookmarks[1][1] = BookmarkManager.getInstance()
@@ -104,11 +131,24 @@ public class DataStore {
             MovieGenre.TV_SHOWS, 8.7);
     bookmarks[1][4] = BookmarkManager.getInstance()
         .createMovie(3004, "Ikiru", "", 1952, new String[] {"Takashi Shimura", "Minoru Chiaki"},
-            new String[] {"Akira Kurosawa"}, MovieGenre.FOREIGN_MOVIES, 8.4);
+            new String[] {"Akira Kurosawa"}, MovieGenre.FOREIGN_MOVIES, 8.4);*/
+
+    String[] data = new String[BOOKMARK_COUNT_PER_TYPE];
+    IOUtil.read(data, "Movie+");
+    int colNum = 0;
+    for (String row : data) {
+      String[] values = row.split("\t");
+      String[] cast = values[3].split(",");
+      String[] directors = values[4].split(",");
+      bookmarks[1][colNum++] =
+          BookmarkManager.getInstance().createMovie(Long.parseLong(values[0]), values[1],
+              Integer.parseInt(values[2]), cast, directors, values[5],
+              Double.parseDouble(values[6]));
+    }
   }
 
   private static void loadBooks() {
-    bookmarks[2][0] = BookmarkManager.getInstance()
+    /*bookmarks[2][0] = BookmarkManager.getInstance()
         .createBook(4000, "Walden", 1854, "Wilder Publications",
             new String[] {"Henry David Thoreau"}, BookGenre.PHILOSOPHY, 4.3);
     bookmarks[2][1] = BookmarkManager.getInstance()
@@ -123,7 +163,18 @@ public class DataStore {
             BookGenre.TECHNICAL, 4.5);
     bookmarks[2][4] = BookmarkManager.getInstance()
         .createBook(4004, "Effective Java Programming Language Guide", 2007, "Prentice Hall",
-            new String[] {"Joshua Bloch"}, BookGenre.TECHNICAL, 4.9);
+            new String[] {"Joshua Bloch"}, BookGenre.TECHNICAL, 4.9);*/
+
+    String[] data = new String[BOOKMARK_COUNT_PER_TYPE];
+    IOUtil.read(data, "Book+");
+    int colNum = 0;
+    for (String row : data) {
+      String[] values = row.split("\t");
+      String[] authors = values[4].split(",");
+      bookmarks[2][colNum++] = BookmarkManager.getInstance()
+          .createBook(Long.parseLong(values[0]), values[1], Integer.parseInt(values[2]), values[3],
+              authors, values[5], Double.parseDouble(values[6]));
+    }
   }
 
   public static void add(UserBookmark userBookmark) {
