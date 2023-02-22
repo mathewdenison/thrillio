@@ -2,6 +2,12 @@ package com.mathewdenison.thrillio.managers;
 
 import com.mathewdenison.thrillio.dao.BookmarkDao;
 import com.mathewdenison.thrillio.entities.*;
+import com.mathewdenison.thrillio.util.HttpConnect;
+import com.mathewdenison.thrillio.util.IOUtil;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 /**
  * Class to enable methods of BookmarkManager such as creation of books, weblinks, movies,
@@ -71,7 +77,6 @@ public class BookmarkManager {
    *
    * @param id The internal stored ID of the movie
    * @param title The title of the movie
-   * @param profileUrl The url of the movie
    * @param releaseYear The year the movie was released
    * @param cast The cast of the movie stored in a String list
    * @param directors The list of directors of the movie stored in a String list
@@ -108,7 +113,25 @@ public class BookmarkManager {
     userBookmark.setUser(user);
     userBookmark.setBookmark(bookmark);
 
-    dao.saveUserBookmark(userBookmark);
+    if (bookmark instanceof WebLink) {
+      try {
+        String url = ((WebLink) bookmark).getUrl();
+        if (!url.endsWith(".pdf")) {
+          String webpage = HttpConnect.download(((WebLink) bookmark).getUrl());
+          if (webpage != null) {
+            IOUtil.write(webpage, bookmark.getId());
+          }
+        }
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      } catch (URISyntaxException e) {
+        e.printStackTrace();
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+
+      dao.saveUserBookmark(userBookmark);
+    }
   }
 
   /**

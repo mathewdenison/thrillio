@@ -23,8 +23,6 @@ w
 G.idea/sonarlint/issuestore/3/a/3ade7e3d11a7852924d24bb26a5d842d41949c5e,1\6\1667fd64a605d475aac1e1c9624cbf73bbc5dd43
 i
 9test/com/mathewdenison/thrillio/entities/WebLinkTest.java,3\0\3050135acd280b44d006fa1c186ee3ee88edea2c
-g
-7test/com/mathewdenison/thrillio/entities/MovieTest.java,5\7\57548440a81bb77c88b6ff6476a18a913c7ef4e2
 f
 6test/com/mathewdenison/thrillio/entities/BookTest.java,a\7\a77496143b2c8454df9f369468696c42732e60d8
 e

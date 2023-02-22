@@ -13,7 +13,7 @@ public class MovieTest {
   public void isKidFriendlyEligible() {
     //Test 1
     Movie movie = BookmarkManager.getInstance()
-        .createMovie(3000, "Citizen Kane", "", 1941, new String[] {"Orson Welles", "Joseph Cotten"},
+        .createMovie(3000, "Citizen Kane", 1941, new String[] {"Orson Welles", "Joseph Cotten"},
             new String[] {"Orson Welles"}, MovieGenre.HORROR, 8.5);
 
     boolean isKidFriendlyEligible = movie.isKidFriendlyEligible();
@@ -23,7 +23,7 @@ public class MovieTest {
 
     //Test 2
     movie = BookmarkManager.getInstance()
-        .createMovie(3000, "Citizen Kane", "", 1941, new String[] {"Orson Welles", "Joseph Cotten"},
+        .createMovie(3000, "Citizen Kane", 1941, new String[] {"Orson Welles", "Joseph Cotten"},
             new String[] {"Orson Welles"}, MovieGenre.THRILLERS, 8.5);
 
     isKidFriendlyEligible = movie.isKidFriendlyEligible();
