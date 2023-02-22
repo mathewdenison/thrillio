@@ -79,12 +79,11 @@ public class BookmarkManager {
    * @param imdbRating The rating given by IMDB
    * @return The created movie object
    */
-  public Movie createMovie(long id, String title, String profileUrl, int releaseYear, String[] cast,
+  public Movie createMovie(long id, String title, int releaseYear, String[] cast,
                            String[] directors, String genre, double imdbRating) {
     Movie movie = new Movie();
     movie.setId(id);
     movie.setTitle(title);
-    movie.setProfileUrl(profileUrl);
     movie.setReleaseYear(releaseYear);
     movie.setCast(cast);
     movie.setDirectors(directors);
